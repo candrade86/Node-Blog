@@ -9,7 +9,7 @@ router.get('/', (req, res)=> {
 
     db.get()
     .then(tags => {
-        res.status(200).json(tags)
+        res.status(200).json(tags);
     })
     .catch(error => {
         res.status(500).json(console.error( "Error getting tags list ", error ));
@@ -21,7 +21,7 @@ router.get('/:id', (req, res)=> {
     const { id } = req.params;
     db.get(id)
     .then(tag => {
-        res.status(200).json(tag)
+        res.status(200).json(tag);
     })
     .catch(error => {
         res.status(500).json(console.error( "Error getting tag ", error ));
@@ -34,10 +34,10 @@ router.post('/add', (req, res) => {
 
     db.insert(tag)
     .then(tag=> {
-        res.status(200).json(tag)
+        res.status(200).json(tag);
     })
     .catch(error => {
-        res.status(500).json(console.error( "Error posting tag ", error))
+        res.status(500).json(console.error( "Error posting tag ", error));
     })
 })
 
@@ -47,10 +47,10 @@ router.put('/:id/update', (req, res) => {
 
     db.update(id, tag)
     .then(tag => {
-        res.status(200).json(tag)
+        res.status(200).json(tag);
     })
     .catch(error => {
-        res.status(500).json(console.error( "Error updating tag", error))
+        res.status(500).json(console.error( "Error updating tag", error));
     })
 })
 
@@ -59,10 +59,10 @@ router.delete('/:id/delete', (req, res) => {
 
     db.remove(id)
     .then(removed => {
-        res.status(200).json(removed)
+        res.status(200).json(removed);
     })
     .catch(error => {
-        res.status(500).json(console.error( "Error deleting tag", error))
+        res.status(500).json(console.error( "Error deleting tag", error));
     })
 })
 
