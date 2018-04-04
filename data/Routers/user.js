@@ -34,7 +34,7 @@ router.get('/:id/posts', (req, res) => {
     db.getUserPosts(id)
     .then(posts => {
         res.status(200).json(posts)
-      
+
     })
     .catch(error => {
         res.status(500).json(console.error( "Error pulling up posts ", error))
@@ -42,7 +42,7 @@ router.get('/:id/posts', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-    const user = req.body
+    const user = req.body;
 
     db.insert(user)
     .then(user=> {
@@ -55,7 +55,7 @@ router.post('/add', (req, res) => {
 
 router.put('/:id/update', (req, res) => {
     const { id } = req.params;
-    const user = req.body
+    const user = req.body;
 
     db.update(id, user)
     .then(updated => {
@@ -68,7 +68,7 @@ router.put('/:id/update', (req, res) => {
 
 router.delete('/:id/delete', (req, res) => {
     const { id } = req.params;
-    
+
     db.remove(id)
     .then(removed => {
         res.status(200).json(removed)
